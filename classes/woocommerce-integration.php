@@ -1,12 +1,12 @@
 <?php
-
 /**
  * Provides functions for the plugin settings page in the WordPress admin.
  * @license   GPL-3.0
  */
 
-class WoocommerceIntegration
-{
+class WoocommerceIntegration {
+
+    private $key;
 
     public function user_has_api_key($user_id) {
         global $wpdb;
@@ -40,7 +40,7 @@ class WoocommerceIntegration
             $wpdb->prefix . 'woocommerce_api_keys',
             array(
                 'user_id' => $user->ID,
-                'description' => "Woocommerce-Fortnox-Integration",
+                'description' => $app_name,
                 'permissions' => $permissions,
                 'consumer_key' => wc_api_hash($consumer_key),
                 'consumer_secret' => $consumer_secret,
@@ -56,17 +56,21 @@ class WoocommerceIntegration
             )
         );
 
+        add_option( 'woo_key_id', $wpdb->insert_id, '', 'yes' );
+
         return array(
             'key_id' => $wpdb->insert_id,
-            'user_id' => $app_user_id,
+            'user_id' => $user_id,
             'consumer_key' => $consumer_key,
             'consumer_secret' => $consumer_secret,
             'key_permissions' => $permissions,
         );
     }
 
-    public function destroy_api_keys($app_name) {
+    public function destroy_api_keys() {
         global $wpdb;
-        $wpdb->query("DELETE FROM wp_woocommerce_api_keys WHERE description = '$app_name'");
+        $key_id = get_option('woo_key_id');
+        $wpdb->delete('wp_woocommerce_api_keys', array('key_id' => $key_id));
+        delete_option('woo_key_id');
     }
 }
