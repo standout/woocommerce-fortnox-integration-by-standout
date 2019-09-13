@@ -6,8 +6,6 @@
 
 class WoocommerceIntegration {
 
-    private $key;
-
     public function user_has_api_key($user_id) {
         global $wpdb;
         $result = $wpdb->get_results("SELECT consumer_key FROM wp_woocommerce_api_keys WHERE description = 'Woocommerce-Fortnox-Integration'");
