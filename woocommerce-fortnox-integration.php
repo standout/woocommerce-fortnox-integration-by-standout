@@ -47,8 +47,8 @@ add_action('wp_ajax_connect_to_fortnox', 'create_api_keys', 5);
 
 function json_to_fortnox() {
     global $wpdb;
-    $current_user_id = get_user_id();
-    $stored_woo_api_keys = $wpdb->get_results("SELECT consumer_key,consumer_secret FROM wp_woocommerce_api_keys WHERE user_id =".$current_user_id);
+    $key_id = get_option('woo_key_id');
+    $stored_woo_api_keys = $wpdb->get_results("SELECT consumer_key,consumer_secret FROM wp_woocommerce_api_keys WHERE key_id =".$key_id);
     $fortnox_auth_key = get_option('fortnox_authorization_key');
     $fortnox_key_id = get_option('fortnox_id_key');
     $consumer_key = $stored_woo_api_keys[0]->consumer_key;

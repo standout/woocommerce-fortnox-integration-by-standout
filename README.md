@@ -43,3 +43,11 @@ Features included:
 * Added support to hide the connect button if Fortnox API key and Your ID key field is empty.
 * Added support to call for a function on button click with AJAX.
 * Added support for translation. At present, the plugin is available in English and Swedish.
+
+**1.1.2 - 2019-09-14**
+
+**Added**
+* Creation of API keys also stores the key_id field in the options table 
+* Deletetion of the API keys is now based on the key_id field
+* Prepare function to send json data to a Fortnox endpoint
+* Added .gitignore file
