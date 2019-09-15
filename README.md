@@ -1,6 +1,6 @@
 # Woocommerce-Fortnox-Integration by Standout
 
-**** Currently in beta – send an mail to support@standout.com if you want to participate ****
+**** Currently in beta – send an mail to support@standout.se if you want to participate ****
 
 ## Do you want to simplify your accounting?
 Automate your e-commerce accounting by integrating WooCommerce for your incoming orders directly to Fortnox. Quick, easy and hassle-free!
