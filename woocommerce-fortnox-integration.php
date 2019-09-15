@@ -89,7 +89,7 @@ function get_user_id() {
 add_action('plugins_loaded', 'get_user_id', 5);
 
 function admin_ajax() {
-    wp_enqueue_script('ajax-script', plugins_url('/includes/admin/js/admin.js', __FILE__), array('jquery'), '1.1.1');
+    wp_enqueue_script('ajax-script', plugins_url('/includes/admin/js/admin.js', __FILE__), array('jquery'), '1.1.2');
 
     wp_localize_script('ajax-script', 'fortnox', array(
         'nonce' => wp_create_nonce('ajax-fortnox-integration'),
