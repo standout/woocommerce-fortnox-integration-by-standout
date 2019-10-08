@@ -3,15 +3,15 @@
 /**
  * The main plugin file for WooCommerce-Fortnox-Integration by Standout.
  *
- * @package   WooCommerce_Fortnox_Integration_by_Standout
+ * @package   Standout_Fortnox_Integration_for_WooCommerce
  * @license   GPL-3.0
  * @link      https://standout.se
  *
  * @wordpress-plugin
- * Plugin Name: Woocommerce-Fortnox-Integration by Standout
+ * Plugin Name: Standout Fortnox Integration for WooCommerce
  * Plugin URI: https://standout.se/integrationer/woocommerce-fortnox/
  * Description: Plugin that integrates Woocommerce with Fortnox.
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author: Standout
  * Author URI: https://standout.se
  * License:           GNU General Public License v3.0
