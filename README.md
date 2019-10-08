@@ -1,4 +1,4 @@
-# Woocommerce-Fortnox-Integration by Standout
+# Standout Fortnox Integration for WooCommerce
 
 **** Currently in beta – send an mail to support@standout.se if you want to participate ****
 
