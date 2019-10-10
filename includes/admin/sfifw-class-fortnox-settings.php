@@ -11,18 +11,18 @@ if (!defined('ABSPATH')) {
 }
 
 if (!class_exists('WC_Settings_Fortnox', false)):
-    function fortnox_add_settings() {
+    function sfifw_fortnox_add_settings() {
         class WC_Settings_Fortnox extends WC_Settings_Page {
 
             public function __construct() {
                 $this->id = 'fortnox-integration';
                 $this->label = __('Fortnox Integration', 'fortnox-integration');
-                add_filter('woocommerce_settings_fortnox_integration', array($this, 'link_button'), 20);
-                add_action('woocommerce_settings_' . $this->id, array($this, 'output'));
+                add_filter('woocommerce_settings_fortnox_integration', array($this, 'sfifw_link_button'), 20);
+                add_action('woocommerce_settings_' . $this->id, array($this, 'sfifw_output'));
                 parent::__construct();
             }
 
-            public function get_sections() {
+            public function sfifw_get_sections() {
                 $sections = array(
                     '' => __('General', 'fortnox-integration'),
                 );
@@ -30,10 +30,10 @@ if (!class_exists('WC_Settings_Fortnox', false)):
                 return apply_filters('woocommerce_get_sections_' . $this->id, $sections);
             }
 
-            public function link_button() {
-                $woocommerce_integration = new WoocommerceIntegration();
+            public function sfifw_link_button() {
+                $woocommerce_integration = new StandoutFortnoxIntegration();
 
-                $connected = $woocommerce_integration->user_has_api_key(get_user_id());
+                $connected = $woocommerce_integration->sfifw_user_has_api_key(sfifw_get_user_id());
                 if (get_option('fortnox_authorization_key') == "" or get_option('fortnox_id_key') == "") {
                     echo __('Please enter the Fortnox API Key and ID Key before you can connect to Fortnox.', 'fortnox-integration');
                 } else {
@@ -56,20 +56,20 @@ if (!class_exists('WC_Settings_Fortnox', false)):
                 }
             }
 
-            public function output() {
+            public function sfifw_output() {
                 global $current_section;
-                $settings = $this->get_settings($current_section);
+                $settings = $this->sfifw_get_settings($current_section);
                 WC_Admin_Settings::output_fields($settings);
             }
 
             public function save() {
                 global $current_section;
 
-                $settings = $this->get_settings($current_section);
+                $settings = $this->sfifw_get_settings($current_section);
                 WC_Admin_Settings::save_fields($settings);
             }
 
-            public function get_settings($current_section = '') {
+            public function sfifw_get_settings($current_section = '') {
                 $settings = array();
                 if ($current_section == '') {
                     $settings = array(
@@ -106,5 +106,5 @@ if (!class_exists('WC_Settings_Fortnox', false)):
         }
         return new WC_Settings_Fortnox();
     }
-    add_filter('woocommerce_get_settings_pages', 'fortnox_add_settings', 15);
+    add_filter('woocommerce_get_settings_pages', 'sfifw_fortnox_add_settings', 15);
 endif;

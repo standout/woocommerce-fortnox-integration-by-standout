@@ -4,9 +4,9 @@
  * @license   GPL-3.0
  */
 
-class WoocommerceIntegration {
+class StandoutFortnoxIntegration {
 
-    public function user_has_api_key($user_id) {
+    public function sfifw_user_has_api_key($user_id) {
         global $wpdb;
         $result = $wpdb->get_results("SELECT consumer_key FROM wp_woocommerce_api_keys WHERE description = 'Woocommerce-Fortnox-Integration'");
         $value = true;
@@ -20,8 +20,8 @@ class WoocommerceIntegration {
         return $value;
     }
 
-    public function generate_api_keys($user_id, $app_name, $scope) {
-        if (!$this->user_has_api_key($user_id)) {
+    public function sfifw_generate_api_keys($user_id, $app_name, $scope) {
+        if (!$this->sfifw_user_has_api_key($user_id)) {
             return;
         }
 
@@ -65,7 +65,7 @@ class WoocommerceIntegration {
         );
     }
 
-    public function destroy_api_keys() {
+    public function sfifw_destroy_api_keys() {
         global $wpdb;
         $key_id = get_option('woo_key_id');
         $wpdb->delete('wp_woocommerce_api_keys', array('key_id' => $key_id));
