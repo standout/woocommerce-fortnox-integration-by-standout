@@ -25,6 +25,10 @@ Features included:
 
 Installation
 
+The plugin will automatically create a woocommerce api key when user clicks "Connect to Fortnox" button.
+This will send the credentials to our integration.
+If you want more information, do not hasitate to contact our support.
+
 1. Locate and add the plugin in wordpress by searching for “WooCommerce-Fortnox-Integration by Standout”.
 2. Activate the plugin through the “Plugins” menu in WordPress.
 3. Login to Fortnox and click on your username in the upper right corner and selct “Administer users”.
@@ -36,7 +40,7 @@ Installation
 9. Fill in field "ID-key" with the key you received in connection with the purchase
 10. Click “Save Changes”.
 11. Then click on "Connect".
-12. Your plugin is now connected to Fortnox.
+12. Your site will now be connected to Fortnox within 2 workdays.
 
 Development
 
@@ -54,6 +58,9 @@ An answer to that question.
 2. /assets/screenshot2.png
 
 == Changelog ==
+
+= 1.1.3 =
+* Added functionality to automatically send the credentials to our integration via email.
 
 = 1.1.2 =
 * Added creation of API keys also stores the key_id field in the options table
@@ -73,6 +80,9 @@ An answer to that question.
 * Added support for translation. At present, the plugin is available in English and Swedish.
 
 == Upgrade Notice ==
+
+= 1.1.3 =
+Added functionality to automatically send the credentials to our integration via email.
 
 = 1.1.2 =
 Added functionality to send api keys to endpoint and deletion of the api keys.
