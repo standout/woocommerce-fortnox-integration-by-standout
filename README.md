@@ -60,3 +60,8 @@ If you want more information, do not hasitate to contact our support.
 
 **Added**
 * Added functionality to automatically send the credentials to our integration via email.
+
+**1.1.4 - 2020-02-17**
+
+**Added**
+* Added functionality to automatically send the credentials to our integration using out API.
