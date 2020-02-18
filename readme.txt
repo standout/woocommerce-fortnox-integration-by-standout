@@ -2,8 +2,8 @@
 Contributors: standoutab
 Tags: woocommerce, fortnox
 Requires at least: 4.6
-Tested up to: 4.7
-Stable tag: 4.3
+Tested up to: 5.3.2
+Stable tag: 1.1.4
 Requires PHP: 5.2.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -11,8 +11,6 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Automate your e-commerce accounting by integrating WooCommerce for your incoming orders directly to Fortnox. Quick, easy and hassle-free!
 
 == Description ==
-
-'Currently in beta – send an mail to support@standout.se if you want to participate'
 
 Do you want to simplify your accounting?
 Automate your e-commerce accounting by integrating WooCommerce for your incoming orders directly to Fortnox. Quick, easy and hassle-free!
@@ -40,7 +38,7 @@ If you want more information, do not hasitate to contact our support.
 9. Fill in field "ID-key" with the key you received in connection with the purchase
 10. Click “Save Changes”.
 11. Then click on "Connect".
-12. Your site will now be connected to Fortnox within 2 workdays.
+12. Your site will now be connected to Fortnox using our integration.
 
 Development
 
@@ -58,6 +56,9 @@ An answer to that question.
 2. /assets/screenshot2.png
 
 == Changelog ==
+
+= 1.1.4 =
+* Added functionality to automatically send the credentials to our integration using out API.
 
 = 1.1.3 =
 * Added functionality to automatically send the credentials to our integration via email.
@@ -80,6 +81,9 @@ An answer to that question.
 * Added support for translation. At present, the plugin is available in English and Swedish.
 
 == Upgrade Notice ==
+
+= 1.1.4 =
+* Added functionality to automatically send the credentials to our integration using out API.
 
 = 1.1.3 =
 Added functionality to automatically send the credentials to our integration via email.
