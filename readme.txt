@@ -57,6 +57,9 @@ An answer to that question.
 
 == Changelog ==
 
+= 1.1.5 =
+* Fix functionality to read API-keys from WooCommerce accurately.
+
 = 1.1.4 =
 * Added functionality to automatically send the credentials to our integration using out API.
 
@@ -81,6 +84,8 @@ An answer to that question.
 * Added support for translation. At present, the plugin is available in English and Swedish.
 
 == Upgrade Notice ==
+= 1.1.5 =
+* Fix functionality to read API-keys from WooCommerce accurately.
 
 = 1.1.4 =
 * Added functionality to automatically send the credentials to our integration using out API.

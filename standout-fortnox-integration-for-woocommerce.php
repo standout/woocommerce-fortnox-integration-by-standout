@@ -11,7 +11,7 @@
  * Plugin Name: Standout Fortnox Integration for WooCommerce
  * Plugin URI: https://standout.se/integrationer/woocommerce-fortnox/
  * Description: Plugin that integrates Woocommerce with Fortnox.
- * Version: 1.1.4
+ * Version: 1.1.5
  * Author: Standout
  * Author URI: https://standout.se
  * License:           GNU General Public License v3.0
@@ -41,30 +41,19 @@ function sfifw_create_api_keys() {
     $app_name = sfifw_set_app_name();
     $scope = "Standout";
     $woocommerce_integration = new StandoutFortnoxIntegration();
-    $woocommerce_integration->sfifw_generate_api_keys($app_user_id, $app_name, $scope);
+    $woo_api_keys = $woocommerce_integration->sfifw_generate_api_keys($app_user_id, $app_name, $scope);
+
+    sfifw_post_credentials(
+        array(
+            'fortnox_auth_key' => get_option('fortnox_authorization_key'),
+            'fortnox_key_id'=> get_option('fortnox_id_key'),
+            'woo_consumer_key'=> $woo_api_keys['consumer_key'],
+            'woo_consumer_secret' => $woo_api_keys['consumer_secret'],
+            'domain' => $_SERVER['SERVER_NAME']
+        )
+    );
 }
 add_action('wp_ajax_connect_to_fortnox', 'sfifw_create_api_keys', 5);
-
-function sfifw_collect_credentials() {
-    global $wpdb;
-    $key_id = get_option('woo_key_id');
-    $stored_woo_api_keys = $wpdb->get_results("SELECT consumer_key,consumer_secret FROM wp_woocommerce_api_keys WHERE key_id =".$key_id);
-    $fortnox_auth_key = get_option('fortnox_authorization_key');
-    $fortnox_key_id = get_option('fortnox_id_key');
-    $consumer_key = $stored_woo_api_keys[0]->consumer_key;
-    $consumer_secret = $stored_woo_api_keys[0]->consumer_secret;
-    $domain = $_SERVER['SERVER_NAME'];
-
-    $data = array(
-        'fortnox_auth_key' => $fortnox_auth_key,
-        'fortnox_key_id'=> $fortnox_key_id,
-        'woo_consumer_key'=> $consumer_key,
-        'woo_consumer_secret' => $consumer_secret,
-        'domain' => $domain
-    );
-    sfifw_post_credentials($data);
-}
-add_action('wp_ajax_connect_to_fortnox', 'sfifw_collect_credentials', 10);
 
 function sfifw_post_credentials($data) {
     $base_url = 'https://fortnox-woocommerce.integrationer.se/users/settings/';
@@ -130,7 +119,7 @@ function sfifw_get_user_id() {
 add_action('plugins_loaded', 'sfifw_get_user_id', 5);
 
 function sfifw_admin_ajax() {
-    wp_enqueue_script('ajax-script', plugins_url('/includes/admin/js/admin.js', __FILE__), array('jquery'), '1.1.4');
+    wp_enqueue_script('ajax-script', plugins_url('/includes/admin/js/admin.js', __FILE__), array('jquery'), '1.1.5');
 
     wp_localize_script('ajax-script', 'fortnox', array(
         'nonce' => wp_create_nonce('ajax-fortnox-integration'),

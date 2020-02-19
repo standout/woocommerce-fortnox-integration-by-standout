@@ -51,7 +51,7 @@ If you want more information, do not hasitate to contact our support.
 **1.1.2 - 2019-09-14**
 
 **Added**
-* Creation of API keys also stores the key_id field in the options table 
+* Creation of API keys also stores the key_id field in the options table
 * Deletetion of the API keys is now based on the key_id field
 * Prepare function to send json data to a Fortnox endpoint
 * Added .gitignore file
@@ -65,3 +65,7 @@ If you want more information, do not hasitate to contact our support.
 
 **Added**
 * Added functionality to automatically send the credentials to our integration using out API.
+
+**1.1.5 - 2020-02-19**
+**Fixed**
+* Fix functionality to read API-keys from WooCommerce accurately.
